@@ -50,12 +50,6 @@ const TemplateWrapper = ({ children }) => {
           color="#ff4400"
         /> */}
 
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap"
-          rel="stylesheet"
-        />
         <meta name="theme-color" content="#fff" />
 
         <meta property="og:type" content="business.business" />
