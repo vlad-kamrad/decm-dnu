@@ -6,10 +6,9 @@ import SimpleCard from "./SimpleCard";
 
 import styles from "./styles.module.css";
 
-const infoIcon = "https://img.icons8.com/ios/100/000000/info--v1.png";
-const bookIcon = "https://img.icons8.com/ios/100/000000/books.png";
-const booksIcon =
-  "https://img.icons8.com/external-vitaliy-gorbachev-lineal-vitaly-gorbachev/60/000000/external-book-back-to-school-vitaliy-gorbachev-lineal-vitaly-gorbachev.png";
+import infoIcon from '../../img/info.png';
+import bookIcon from '../../img/book.png';
+import booksIcon from '../../img/books.png';
 
 export default function StudentEnrollment() {
   return (

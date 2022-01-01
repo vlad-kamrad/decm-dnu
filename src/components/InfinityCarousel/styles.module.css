@@ -48,6 +48,7 @@
 
 .slide img {
   max-height: 120px;
+  min-height: 50px;
   width: auto;
 }
 

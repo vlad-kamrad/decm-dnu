@@ -10,7 +10,7 @@ import logo2 from "../img/logo2.png";
 const languages = { ua: "ua", en: "en", ru: "ru" };
 
 // /about, /products, /blog, /contact, /contact/examples
-const _renderNavLinks = (className) => (
+const _renderNavLinks = className => (
   <div className={`navbar-start has-text-centered ${className}`}>
     <AnchorLink className="navbar-item" href="#__index">
       Головна
@@ -25,7 +25,7 @@ const _renderNavLinks = (className) => (
       Навчальний процес
     </AnchorLink>
     <AnchorLink className="navbar-item" href="#__contacts">
-      Контакты
+      Контакти
     </AnchorLink>
   </div>
 );
@@ -55,8 +55,8 @@ const Navbar = props => {
           style={isActive ? { backgroundColor: "white" } : {}}
         >
           <Link to="/" className="navbar-item" title="Logo">
-            <img src={logo1} />
-            <img src={logo2} />
+            <img src={logo1} width={45} height={45} />
+            <img src={logo2} width={45} height={45} />
           </Link>
           {_renderHamburgerMenu(toggleHamburger, navBarActiveClass)}
         </div>
