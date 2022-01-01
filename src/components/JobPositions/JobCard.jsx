@@ -7,10 +7,10 @@ export default function JobCard({ title, content, iconSrc }) {
 
   return (
     <div className={`card ${styles.jobCard}`}>
-      <header class={`card-header ${styles.jobCardHeader}`}>
-        <p class={`card-header-title ${styles.jobCardTitle}`}>{title}</p>
-        <a class="card-header-icon" aria-label="more options">
-          <span class="icon">
+      <header className={`card-header ${styles.jobCardHeader}`}>
+        <p className={`card-header-title ${styles.jobCardTitle}`}>{title}</p>
+        <a className="card-header-icon" aria-label="more options">
+          <span className="icon">
             <img src={iconSrc} />
           </span>
         </a>

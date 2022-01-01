@@ -5,10 +5,12 @@ export default function InfinityCarousel(props) {
   if (!props?.children?.length) return null;
 
   return (
-    <div class={styles.slider}>
-      <div class={styles.slideTrack}>
-        {props.children.map(x => (
-          <div class={styles.slide}>{x}</div>
+    <div className={styles.slider}>
+      <div className={styles.slideTrack}>
+        {props.children.map((x, i) => (
+          <div key={i} className={styles.slide}>
+            {x}
+          </div>
         ))}
       </div>
     </div>

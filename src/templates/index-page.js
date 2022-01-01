@@ -63,9 +63,9 @@ export const IndexPageTemplate = ({
   return (
     <div id="__index">
       <Caroules>
-        {imageCoverList.map(x => {
+        {imageCoverList.map((x, i) => {
           return (
-            <div data-src={x} className="carousel-item">
+            <div key={i} data-src={x} className="carousel-item">
               {_cardInformation()}
             </div>
           );

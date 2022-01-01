@@ -10,13 +10,23 @@ import logo2 from "../img/logo2.png";
 const languages = { ua: "ua", en: "en", ru: "ru" };
 
 // /about, /products, /blog, /contact, /contact/examples
-const _renderNavLinks = () => (
-  <div className="navbar-start has-text-centered">
-    <AnchorLink className="navbar-item" href="#__index">Головна</AnchorLink>
-    <AnchorLink className="navbar-item" href="#__student">Абітурієнту</AnchorLink>
-    <AnchorLink className="navbar-item" href="#__about">Про кафедру</AnchorLink>
-    <AnchorLink className="navbar-item" href="#__study-proc">Навчальний процес</AnchorLink>
-    <AnchorLink className="navbar-item" href="#__contacts">Контакты</AnchorLink>
+const _renderNavLinks = (className) => (
+  <div className={`navbar-start has-text-centered ${className}`}>
+    <AnchorLink className="navbar-item" href="#__index">
+      Головна
+    </AnchorLink>
+    <AnchorLink className="navbar-item" href="#__student">
+      Абітурієнту
+    </AnchorLink>
+    <AnchorLink className="navbar-item" href="#__about">
+      Про кафедру
+    </AnchorLink>
+    <AnchorLink className="navbar-item" href="#__study-proc">
+      Навчальний процес
+    </AnchorLink>
+    <AnchorLink className="navbar-item" href="#__contacts">
+      Контакты
+    </AnchorLink>
   </div>
 );
 
@@ -26,10 +36,10 @@ const _renderNavLinks = () => (
 const Navbar = props => {
   const [isActive, setActive] = useState(false);
   const [navBarActiveClass, setNavBarActiveClass] = useState("");
-  const [selectedLanguage, setLanguage] = useState(languages.ru);
+  const [selectedLanguage, setLanguage] = useState(languages.ua);
 
   useEffect(
-    () => setNavBarActiveClass(isActive ? "is-active" : ""),
+    () => setNavBarActiveClass(isActive ? "is-active black" : ""),
     [isActive]
   );
 
@@ -40,7 +50,10 @@ const Navbar = props => {
       className={`navbar is-transparent ${props?.isActive ? "active-nav" : ""}`}
     >
       <div className="container">
-        <div className="navbar-brand">
+        <div
+          className="navbar-brand"
+          style={isActive ? { backgroundColor: "white" } : {}}
+        >
           <Link to="/" className="navbar-item" title="Logo">
             <img src={logo1} />
             <img src={logo2} />
@@ -48,7 +61,7 @@ const Navbar = props => {
           {_renderHamburgerMenu(toggleHamburger, navBarActiveClass)}
         </div>
         <div id="navMenu" className={`navbar-menu ${navBarActiveClass}`}>
-          {_renderNavLinks()}
+          {_renderNavLinks(isActive ? "black" : "")}
           <div className="navbar-end has-text-centered">
             <a
               className="navbar-item"
