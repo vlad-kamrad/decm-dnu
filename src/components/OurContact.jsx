@@ -23,7 +23,7 @@ export default function OurContact() {
           </p>
           <p>
             Сайт факультету фізики, електроніки та комп'ютерних систем:{" "}
-            <Link to="https://ffeks.dp.ua/">https://ffeks.dp.ua/</Link>
+            <Link to="https://ffeks.dp.ua/">https://fpecs.dnu.dp.ua/</Link>
           </p>
         </div>
         <div className="column is-7">

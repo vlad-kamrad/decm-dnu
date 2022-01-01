@@ -12,21 +12,11 @@ const languages = { ua: "ua", en: "en", ru: "ru" };
 // /about, /products, /blog, /contact, /contact/examples
 const _renderNavLinks = () => (
   <div className="navbar-start has-text-centered">
-    <Link className="navbar-item">
-      <AnchorLink href="#__index">Головна</AnchorLink>
-    </Link>
-    <Link className="navbar-item">
-      <AnchorLink href="#__student">Абітурієнту</AnchorLink>
-    </Link>
-    <Link className="navbar-item">
-      <AnchorLink href="#__about">Про кафедру</AnchorLink>
-    </Link>
-    <Link className="navbar-item">
-      <AnchorLink href="#__study-proc">Навчальний процес</AnchorLink>
-    </Link>
-    <Link className="navbar-item">
-      <AnchorLink href="#__contacts">Контакты</AnchorLink>
-    </Link>
+    <AnchorLink className="navbar-item" href="#__index">Головна</AnchorLink>
+    <AnchorLink className="navbar-item" href="#__student">Абітурієнту</AnchorLink>
+    <AnchorLink className="navbar-item" href="#__about">Про кафедру</AnchorLink>
+    <AnchorLink className="navbar-item" href="#__study-proc">Навчальний процес</AnchorLink>
+    <AnchorLink className="navbar-item" href="#__contacts">Контакты</AnchorLink>
   </div>
 );
 
