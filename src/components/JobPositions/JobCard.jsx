@@ -7,7 +7,11 @@ export default function JobCard({ title, content, iconSrc }) {
 
   return (
     <div className={`card ${styles.jobCard}`}>
-      <header className={`card-header ${styles.jobCardHeader}`}>
+      <header
+        className={`card-header ${styles.jobCardHeader} ${
+          isOpen ? styles.openHeader : ""
+        }`}
+      >
         <p className={`card-header-title ${styles.jobCardTitle}`}>{title}</p>
         <a className="card-header-icon" aria-label="more options">
           <span className="icon">
@@ -15,7 +19,7 @@ export default function JobCard({ title, content, iconSrc }) {
           </span>
         </a>
       </header>
-      <div className="card-content __jch">
+      <div className={`card-content __jch ${isOpen ? styles.openContent : ""}`}>
         <div
           className={`${styles.jobContent} ${isOpen ? styles.open : ""}`}
           onClick={toggle}

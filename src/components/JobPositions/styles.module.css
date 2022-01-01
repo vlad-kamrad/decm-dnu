@@ -10,6 +10,8 @@
 
 .jobCardHeader {
   flex-direction: row-reverse;
+  box-sizing: border-box;
+  border: 1px solid transparent;
 }
 
 .jobCardTitle {
@@ -28,8 +30,28 @@
   text-overflow: ellipsis;
   cursor: pointer;
   -webkit-line-clamp: 5;
+  transition: 0.5s;
+  box-sizing: border-box;
+  border: 1px solid transparent;
 }
 
 .open {
+  /* -webkit-line-clamp: inherit; */
+  display: block;
+}
+
+.openContent {
+  background-color: #f4f4f4;
   -webkit-line-clamp: inherit;
+  position: absolute;
+  z-index: 5;
+  border: 1px #003797 solid;
+  color: #003797;
+  transform: translateY(-160px);
+}
+
+.openHeader {
+  border: 1px solid #003797;
+  border-bottom: 0;
+  margin-bottom: 160px;
 }
