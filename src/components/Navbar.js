@@ -3,6 +3,7 @@ import { Link } from "gatsby";
 
 import AnchorLink from "react-anchor-link-smooth-scroll";
 
+import login from "../img/login.png";
 import github from "../img/github-icon.svg";
 import logo1 from "../img/logo1.png";
 import logo2 from "../img/logo2.png";
@@ -63,7 +64,7 @@ const Navbar = props => {
         <div id="navMenu" className={`navbar-menu ${navBarActiveClass}`}>
           {_renderNavLinks(isActive ? "black" : "")}
           <div className="navbar-end has-text-centered">
-            <a
+            {/*  <a
               className="navbar-item"
               href="https://github.com/vlad-kamrad/decm-dnu"
               target="_blank"
@@ -71,6 +72,16 @@ const Navbar = props => {
             >
               <span className="icon">
                 <img src={github} alt="Github" />
+              </span>
+            </a> */}
+            <a
+              className="navbar-item"
+              href="https://github.com/vlad-kamrad/decm-dnu"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span className="icon">
+                <img src={login} alt="Login" width={40} />
               </span>
             </a>
           </div>

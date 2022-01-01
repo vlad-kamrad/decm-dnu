@@ -1,4 +1,5 @@
 import React from "react";
+import LazyLoad from "react-lazyload";
 import PropTypes from "prop-types";
 import { Link, graphql } from "gatsby";
 
@@ -73,7 +74,9 @@ export const IndexPageTemplate = ({
       </Caroules>
       <StudentEnrollment />
       <About />
-      <OurContact />
+      <LazyLoad height={300}>
+        <OurContact />
+      </LazyLoad>
     </div>
   );
   return (
