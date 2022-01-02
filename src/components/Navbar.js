@@ -4,6 +4,8 @@ import { Link } from "gatsby";
 import AnchorLink from "react-anchor-link-smooth-scroll";
 
 import login from "../img/login.png";
+import enter from "../img/enter.svg";
+import invertEnter from "../img/invert-enter.svg";
 import github from "../img/github-icon.svg";
 import logo1 from "../img/logo1.png";
 import logo2 from "../img/logo2.png";
@@ -11,21 +13,25 @@ import logo2 from "../img/logo2.png";
 const languages = { ua: "ua", en: "en", ru: "ru" };
 
 // /about, /products, /blog, /contact, /contact/examples
-const _renderNavLinks = className => (
+const _renderNavLinks = (className, onClickCb) => (
   <div className={`navbar-start has-text-centered ${className}`}>
-    <AnchorLink className="navbar-item" href="#__index">
+    <AnchorLink className="navbar-item" href="#__index" onClick={onClickCb}>
       Головна
     </AnchorLink>
-    <AnchorLink className="navbar-item" href="#__student">
+    <AnchorLink className="navbar-item" href="#__student" onClick={onClickCb}>
       Абітурієнту
     </AnchorLink>
-    <AnchorLink className="navbar-item" href="#__about">
+    <AnchorLink className="navbar-item" href="#__about" onClick={onClickCb}>
       Про кафедру
     </AnchorLink>
-    <AnchorLink className="navbar-item" href="#__study-proc">
+    <AnchorLink
+      className="navbar-item"
+      href="#__study-proc"
+      onClick={onClickCb}
+    >
       Навчальний процес
     </AnchorLink>
-    <AnchorLink className="navbar-item" href="#__contacts">
+    <AnchorLink className="navbar-item" href="#__contacts" onClick={onClickCb}>
       Контакти
     </AnchorLink>
   </div>
@@ -62,7 +68,7 @@ const Navbar = props => {
           {_renderHamburgerMenu(toggleHamburger, navBarActiveClass)}
         </div>
         <div id="navMenu" className={`navbar-menu ${navBarActiveClass}`}>
-          {_renderNavLinks(isActive ? "black" : "")}
+          {_renderNavLinks(isActive ? "black" : "", toggleHamburger)}
           <div className="navbar-end has-text-centered">
             {/*  <a
               className="navbar-item"
@@ -74,16 +80,21 @@ const Navbar = props => {
                 <img src={github} alt="Github" />
               </span>
             </a> */}
-            <a
+            <Link
               className="navbar-item"
-              href="https://github.com/vlad-kamrad/decm-dnu"
+              to="https://github.com/vlad-kamrad/decm-dnu"
               target="_blank"
               rel="noopener noreferrer"
             >
               <span className="icon">
-                <img src={login} alt="Login" width={40} />
+                <img
+                  src={props?.isActive || isActive ? enter : invertEnter}
+                  alt="Login"
+                  width={40}
+                  title="Login to internal system"
+                />
               </span>
-            </a>
+            </Link>
           </div>
         </div>
       </div>
