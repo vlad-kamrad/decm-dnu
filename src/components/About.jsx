@@ -42,7 +42,7 @@ export default function About() {
       <h2 className="section-title">Історія кафедри</h2>
       <div className="columns">
         <div className="column is-6">
-          <img src={campus} style={{ objectFit: "cover", maxHeight: 500 }} loading="lazy" />
+          <img src={campus} style={{ objectFit: "cover", maxHeight: 500 }} loading="lazy" alt="Campus" />
         </div>
         <div className="column">
           <p>

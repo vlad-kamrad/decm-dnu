@@ -188,7 +188,7 @@ a.navbar-item:focus, a.navbar-item:focus-within, a.navbar-item:hover, a.navbar-i
     height: 2px
 
 .navbar
-  transition: background-color 100ms
+  transition: all 170ms ease-in-out
 
 .carousel-item
   z-index: 2
@@ -266,3 +266,7 @@ div.mapboxgl-control-container
 
 a.navbar-item:focus, a.navbar-item:hover, a.navbar-item.is-active
   color: #fff
+
+.active-nav
+  a.navbar-item:focus, a.navbar-item:hover, a.navbar-item.is-active
+    color: $primary
