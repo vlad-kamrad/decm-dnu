@@ -8,7 +8,13 @@ const images = importAll(
 );
 
 const image = (src, key) => (
-  <img src={src} key={key} loading="lazy" className="company-img" />
+  <img
+    src={src}
+    key={key}
+    loading="lazy"
+    className="company-img"
+    alt="company icon"
+  />
 );
 
 export default function FutureCareers() {

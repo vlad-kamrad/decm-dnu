@@ -62,13 +62,16 @@ const Navbar = props => {
           style={isActive ? { backgroundColor: "white" } : {}}
         >
           <Link to="/" className="navbar-item" title="Logo">
-            <img src={logo1} width={45} height={45} />
-            <img src={logo2} width={45} height={45} />
+            <img src={logo1} width={45} height={45} alt="logo1" />
+            <img src={logo2} width={45} height={45} alt="logo2" />
           </Link>
           {_renderHamburgerMenu(toggleHamburger, navBarActiveClass)}
         </div>
         <div id="navMenu" className={`navbar-menu ${navBarActiveClass}`}>
-          {_renderNavLinks(isActive ? "black" : "", toggleHamburger)}
+          {_renderNavLinks(
+            isActive ? "black" : "",
+            isActive ? toggleHamburger : () => {}
+          )}
           <div className="navbar-end has-text-centered">
             {/*  <a
               className="navbar-item"

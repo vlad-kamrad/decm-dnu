@@ -6,6 +6,7 @@ export default function SimpleCard({ title, iconSrc, children, style }) {
     <div style={style}>
       <div className={styles.simpleCardHeader}>
         <img
+          alt="icon"
           width={40}
           height={40}
           src={iconSrc}
