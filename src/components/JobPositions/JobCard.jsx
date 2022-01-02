@@ -1,17 +1,16 @@
 import React from "react";
 import styles from "./styles.module.css";
-import useToggle from "../../hooks/useToggle";
 
-export default function JobCard({ title, content, iconSrc }) {
-  const [isOpen, toggle] = useToggle(false);
-
+export default function JobCard({
+  title,
+  content,
+  iconSrc,
+  onClick,
+  contentClassName,
+}) {
   return (
-    <div className={`card ${styles.jobCard}`}>
-      <header
-        className={`card-header ${styles.jobCardHeader} ${
-          isOpen ? styles.openHeader : ""
-        }`}
-      >
+    <div className={`card ${styles.jobCard}`} onClick={onClick}>
+      <header className={`card-header ${styles.jobCardHeader}`}>
         <p className={`card-header-title ${styles.jobCardTitle}`}>{title}</p>
         <a className="card-header-icon" aria-label="more options">
           <span className="icon">
@@ -19,11 +18,8 @@ export default function JobCard({ title, content, iconSrc }) {
           </span>
         </a>
       </header>
-      <div className={`card-content __jch ${isOpen ? styles.openContent : ""}`}>
-        <div
-          className={`${styles.jobContent} ${isOpen ? styles.open : ""}`}
-          onClick={toggle}
-        >
+      <div className={`card-content __jch`}>
+        <div className={`${styles.jobContent} ${contentClassName}`}>
           {content}
         </div>
       </div>

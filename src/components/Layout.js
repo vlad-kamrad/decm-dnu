@@ -22,7 +22,7 @@ const TemplateWrapper = ({ children }) => {
   return (
     <div>
       <Helmet>
-        <html lang="en" />
+        <html lang="en" /* className="is-clipped"  *//>
         <title>{title}</title>
         <meta name="description" content={description} />
 

@@ -104,11 +104,49 @@ const jobsInformation = [
 ];
 
 export default function JobPositions(props) {
+  const [selected, selectCard] = React.useState(null);
+
+  React.useEffect(() => {
+    if (selected) document.querySelector("html").classList.add("is-clipped");
+    else document.querySelector("html").classList.remove("is-clipped");
+  }, [selected]);
+
+  const onClose = () => onCardClick(null);
+  const onCardClick = card => {
+    if (card) document.querySelector("html").classList.toggle("is-clipped");
+
+    selectCard(card?.title !== selected?.title ? card : null);
+  };
+
   return (
     <div className={`container ${styles.jobPositions}`}>
       {jobsInformation.map((x, i) => (
-        <JobCard key={i} {...x} />
+        <JobCard key={i} onClick={() => onCardClick(x)} {...x} />
       ))}
+      {selected && (
+        <Modal onClose={onClose}>
+          <JobCard
+            key="jmdl"
+            onClick={onClose}
+            {...selected}
+            contentClassName={styles.open}
+          />
+        </Modal>
+      )}
+    </div>
+  );
+}
+
+function Modal(props) {
+  return (
+    <div className="modal is-active column">
+      <div className="modal-background" onClick={props.onClose} />
+      <div className="modal-content">{props.children}</div>
+      <button
+        className="modal-close is-large"
+        aria-label="close"
+        onClick={props.onClose}
+      />
     </div>
   );
 }

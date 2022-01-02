@@ -35,23 +35,6 @@ const _cardInformation = () => {
   );
 };
 
-const myIndex = () => (
-  <div id="__index">
-    <Caroules>
-      {imageCoverList.map(x => {
-        return (
-          <div data-src={x} className="carousel-item">
-            {_cardInformation()}
-          </div>
-        );
-      })}
-    </Caroules>
-    <StudentEnrollment />
-    <About />
-    <OurContact />
-  </div>
-);
-
 export const IndexPageTemplate = ({
   image,
   title,
