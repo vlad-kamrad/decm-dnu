@@ -3,12 +3,47 @@ import { Link } from "gatsby";
 
 import AnchorLink from "react-anchor-link-smooth-scroll";
 
-import login from "../img/login.png";
 import enter from "../img/enter.svg";
 import invertEnter from "../img/invert-enter.svg";
 import github from "../img/github-icon.svg";
 import logo1 from "../img/logo1.png";
 import logo2 from "../img/logo2.png";
+
+const _package = require("../../package.json");
+
+const serseUrl = _package.config["serse-url"];
+const verseUrl = _package.config["verse-url"];
+
+const isLocalSide =
+  serseUrl.includes("localhost") || verseUrl.includes("localhost");
+
+const LoginIcon = ({ isActive }) => {
+  const url = isLocalSide
+    ? `${serseUrl}/login`
+    : "https://github.com/vlad-kamrad/decm-dnu";
+
+  const loginIcon = isActive ? enter : invertEnter;
+  const icon = !isLocalSide ? loginIcon : github;
+
+  return (
+    <Link
+      className="navbar-item"
+      to={url}
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <span className="icon">
+        <img
+          src={icon}
+          alt={isLocalSide ? "Src" : "Login"}
+          width={40}
+          title="Login to internal system"
+          className={!isActive ? "invert" : ""}
+        />
+      </span>
+    </Link>
+  );
+};
 
 const languages = { ua: "ua", en: "en", ru: "ru" };
 
@@ -37,9 +72,6 @@ const _renderNavLinks = (className, onClickCb) => (
   </div>
 );
 
-// TODO: Create service for parse news?s
-// TODO: Add link to personal cabinet ?
-// TODO: add use toggle hook
 const Navbar = props => {
   const [isActive, setActive] = useState(false);
   const [navBarActiveClass, setNavBarActiveClass] = useState("");
@@ -73,31 +105,7 @@ const Navbar = props => {
             isActive ? toggleHamburger : () => {}
           )}
           <div className="navbar-end has-text-centered">
-            {/*  <a
-              className="navbar-item"
-              href="https://github.com/vlad-kamrad/decm-dnu"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <span className="icon">
-                <img src={github} alt="Github" />
-              </span>
-            </a> */}
-            <Link
-              className="navbar-item"
-              to="https://github.com/vlad-kamrad/decm-dnu"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <span className="icon">
-                <img
-                  src={props?.isActive || isActive ? enter : invertEnter}
-                  alt="Login"
-                  width={40}
-                  title="Login to internal system"
-                />
-              </span>
-            </Link>
+            <LoginIcon isActive={props?.isActive} />
           </div>
         </div>
       </div>
